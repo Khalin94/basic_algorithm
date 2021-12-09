@@ -44,25 +44,26 @@ public class ReversePrimeNumber {
 
 
         List<Integer> tmp = new ArrayList<>();
-        for(int i=0; i<reverseArr.length; i++){
-            if(reverseArr[i] == 1){
+        for (int k : reverseArr) {
+            if (k == 1) {
                 continue;
             }
 
-           /* if(reverseArr[i] == 2){
-                tmp.add(reverseArr[i]);
-            }*/
+            // if(reverseArr[i] == 2){
+            //     tmp.add(reverseArr[i]);
+            // }
 
             boolean isPrime = true;
-            for(int j=2; j<=Math.sqrt(reverseArr[i]); j++){
-                if((reverseArr[i] % j)==0){
+            for (int j = 2; j <= Math.sqrt(k); j++) {
+                if ((k % j) == 0) {
                     isPrime = false;
+                    break;
                 }
             }
 
-            if(isPrime){
-             //  System.out.print(reverseArr[i] + " ");
-               tmp.add(reverseArr[i]);
+            if (isPrime) {
+                //  System.out.print(reverseArr[i] + " ");
+                tmp.add(k);
             }
         }
 
