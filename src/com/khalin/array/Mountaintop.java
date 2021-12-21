@@ -28,17 +28,17 @@ public class Mountaintop {
             newGrid[i][0] = 0;
             newGrid[i][n+1] =0;
         }
-/*
+
         for(int i=1; i<n+1; i++){
             for(int j=1; j<n+1; j++){
                 newGrid[i][j] = grid[i-1][j-1];
             }
-        }*/
-       /* arraycopy를 사용해도 됨.*/
+        }
+       /* arraycopy를 사용해도 됨.
         for(int i=1; i<n+1; i++){
             System.arraycopy(grid[i - 1], 0, newGrid[i], 1, n + 1 - 1);
         }
-
+        */
 
         int count = 0;
 
