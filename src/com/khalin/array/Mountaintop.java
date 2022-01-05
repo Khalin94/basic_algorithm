@@ -1,5 +1,6 @@
 package com.khalin.array;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Mountaintop {
@@ -15,8 +16,49 @@ public class Mountaintop {
                 grid[i][j] = scan.nextInt();
             }
         }
+        System.out.println();
 
-        System.out.println(solution(n, grid));
+        long start1 = System.currentTimeMillis();
+        long sNano1 = System.nanoTime();
+        System.out.println("solution : " + solution(n, grid));
+        long end1 = System.currentTimeMillis();
+        long eNano1 = System.nanoTime();
+        System.out.println("millis solution :: " + (end1 - start1));
+        System.out.println("nano1111 : " + (eNano1 - sNano1));
+
+        long start2 = System.currentTimeMillis();
+        long sNano2 = System.nanoTime();
+        System.out.println("solution2 : " + solution2(n, grid));
+        long end2 = System.currentTimeMillis();
+        long eNano2 = System.nanoTime();
+        System.out.println("millis solution2 : " + (end2 - start2));
+        System.out.println("nano : " + (eNano2 - sNano2));
+
+    }
+
+    private static int solution2(int n, int[][] grid){
+        int[] dx = {-1, 0, 1, 0};
+        int[] dy = {0, 1, 0, -1};
+        int answer = 0;
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                boolean isBiggest = true;
+                for(int k=0; k<4; k++){
+                    int nx = i + dx[k];
+                    int ny = j + dy[k];
+                    if(nx >= 0 && nx < n && ny >= 0 && ny < n &&grid[i][j] <= grid[nx][ny]){
+                        isBiggest = false;
+                        break;
+                    }
+                }
+                if(isBiggest){
+                    answer++;
+                }
+            }
+        }
+
+        return answer;
     }
 
     private static int solution(int n, int[][] grid){
